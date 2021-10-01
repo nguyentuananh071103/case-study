@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đuổi hình bắt chữ</title>
+
+  <style>
+    body{
+      background-color: pink;
+      text-align: center
+    }
+    h1{
+      font-size: 50px
+    }
+    button{
+      border-radius: 20px;
+      font-size: 30px;
+    }
+    input{
+      font-size: 30px;
+    }
+    div{
+      font-size: 50px;
+      color: snow
+    }
+  </style>
+</head>
+<body>
+<h1>Đuổi hình bắt chữ</h1>
+<img src="musicandimg/img/anhto.png" width="510" height="300"><br><br><br>
+<a href="game.html"> Start </a><br><br>
+<!--<iframe src="musicandimg/nhac/SpanishGypsyDance-CasaMusica_65qv.mp3" allow="autoplay" frameborder="0"></iframe>-->
+<audio autoplay id="bg-audio" src="musicandimg/nhac/NonstopNhacBayPhong-DJ-5162237.mp3">
+</audio>
+<!--<audio src="bg-audio" autoplay controls>-->
+<!--  <source type="audio/mp3" src="musicandimg/nhac/SpanishGypsyDance-CasaMusica_65qv.mp3">-->
+<!--</audio>-->
+<script>
+  window.body.onload = function () {
+    playBgAudio();
+  }
+  function playBgAudio() {
+    document.getElementById('bg-audio').play();
+  }
+</script>
+</body>
+</html>
