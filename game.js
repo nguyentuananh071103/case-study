@@ -24,6 +24,25 @@ let answers = [
     "xà kép",
 
 ];
+let timeCount ;
+let message;
+let timeID = setInterval(function (){
+    document.getElementById('timeCountDown').innerHTML = timeCount +  "giây";
+    timeCount--;
+    countdown();
+}, 1000);
+
+function countdown(){
+    if (timeCount<0){
+        clearInterval(timeID);
+        message = window.confirm('hết giờ rồi bạn ơi!!!');
+        reload();
+    }
+}
+// function showQuestion(question){
+//     timeCount = 20;
+// }
+
 let ImageQuestion = function () {
     this.index = 0;
     this.increaseIndex = function () {
@@ -65,6 +84,7 @@ let Answer = function () {
             document.getElementById("inp").value = null;
             if (image.index === 0) {
                 alert("Bạn đã thắng cuộc");
+                alert("Điểm của bạn là: 100")
 
             }
         } else if (this.answer === "") {

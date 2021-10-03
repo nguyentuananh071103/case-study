@@ -26,8 +26,19 @@
     </style>
     <script src="music.js"></script>
 </head>
-</head>
+<div>
+    <h5 id="styleTime">
+        Thời gian còn lại: <span id="timeCountDown"></span>
+    </h5>
+</div>
 <body>
+<!--<span id="seconds">00</span>-->
+<!--<script src="count.js"></script>-->
+<script>
+    countdown(['seconds'], function (){
+        console.log('done')
+    })
+</script>
 <h1>Đuổi hình bắt chữ</h1>
 <img id="img" src="musicandimg/img/bahoa.png"><br><br><br>
 <input id="inp" type="text"><br><br><br>
