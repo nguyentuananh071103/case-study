@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="game.js"></script>
+
     <style>
         body{
-            background-image: url("musicandimg/img/hinhnen.jpg");
+            background-image: url("assets/img/hinhnen.jpg");
             text-align: center;
         }
         h1{
@@ -26,25 +26,20 @@
     </style>
     <script src="music.js"></script>
 </head>
+<p id="demo"></p>
 <div>
     <h5 id="styleTime">
         Thời gian còn lại: <span id="timeCountDown"></span>
     </h5>
 </div>
 <body>
-<!--<span id="seconds">00</span>-->
-<!--<script src="count.js"></script>-->
-<script>
-    countdown(['seconds'], function (){
-        console.log('done')
-    })
-</script>
 <h1>Đuổi hình bắt chữ</h1>
-<img id="img" src="musicandimg/img/bahoa.png"><br><br><br>
+<img id="img" width="300" src="assets/img/bahoa.png"><br><br><br>
 <input id="inp" type="text"><br><br><br>
 <button type="button" onclick="answer.check()">Enter</button><br><br>
 <div id="point">Điểm của bạn:  </div>
-<audio autoplay id="bg-audio" src="musicandimg/nhac/NonstopNhacBayPhong-DJ-5162237.mp3" >
+<audio autoplay id="bg-audio" src="assets/nhac/NonstopNhacBayPhong-DJ-5162237.mp3" >
 </audio>
+<script src="game.js"></script>
 </body>
 </html>

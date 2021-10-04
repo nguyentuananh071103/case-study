@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Quest.js"></script>
+    <script src="GameManager.js"></script>
+</head>
+<body>
+<div id="quest">
+    <p id="score">0</p>
+    <img src="" alt="" id="imgQuest" height="200px">
+    <br>
+    <input type="text" id="answerInput">
+    <p id="hint"></p>
+    <button onclick="answerQuest()">OK</button>
+    <button onclick="nextQuest()">Next</button>
+    <button onclick="showHint()">Hint</button>
+</div>
+<script>
+    let game = new GameManager();
+    game.initQuest(questList);
+    game.shuffleQuest();
+    game.limit = game.quests.length;
+    console.log(game.quests);
+
+    function showQuest(){
+        let index = game.index;
+        let baseUrl = "../assets/img/"
+        console.log(game.quests[index].imgUrl)
+        document.getElementById("imgQuest").src = baseUrl+game.quests[index].imgUrl;
+        document.getElementById('hint').innerHTML = "";
+    }
+    function nextQuest() {
+        if(game.index < game.limit-1){
+            game.index++;
+            showQuest();
+        }else {
+            alert("Hết câu hỏi")
+        }
+
+    }
+
+    function answerQuest() {
+        let answer = document.getElementById('answerInput').value;
+        document.getElementById('answerInput').value = "";
+        if(answer ===""){
+            alert("Vui lòng nhập câu trả lời");
+            return;
+        }
+        if (answer.toLowerCase() === game.quests[game.index].answer){
+            alert("Trả lời đúng");
+            game.score += game.quests[game.index].point;
+            showScore();
+            nextQuest();
+        }else {
+            alert("Trả lời sai");
+        }
+    }
+
+    function showHint(){
+        document.getElementById('hint').innerHTML = game.quests[game.index].hint;
+    }
+
+    function showScore() {
+        document.getElementById('score').innerHTML = game.score;
+    }
+    showQuest();
+</script>
+</body>
+</html>

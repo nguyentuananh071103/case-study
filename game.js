@@ -24,24 +24,24 @@ let answers = [
     "xà kép",
 
 ];
-let timeCount ;
-let message;
-let timeID = setInterval(function (){
-    document.getElementById('timeCountDown').innerHTML = timeCount +  "giây";
-    timeCount--;
-    countdown();
-}, 1000);
+let timeCount= 10 ;
+let timeID;
+function countDown(time) {
+    clearInterval(timeID);
+    timeCount = time;
+    timeID = setInterval(countdown, 1000);
+}
+
 
 function countdown(){
+    document.getElementById('timeCountDown').innerHTML = timeCount +  "giây";
+    timeCount--;
     if (timeCount<0){
         clearInterval(timeID);
-        message = window.confirm('hết giờ rồi bạn ơi!!!');
-        reload();
+        alert('hết giờ rồi bạn ơi!!!');
+        window.location.reload();
     }
 }
-// function showQuestion(question){
-//     timeCount = 20;
-// }
 
 let ImageQuestion = function () {
     this.index = 0;
@@ -62,7 +62,7 @@ let ImageQuestion = function () {
         this.increaseIndex();
         console.log(this)
         this.setImage(images[this.index]);
-        document.getElementById("img").src = 'musicandimg/img/' + this.getImage();
+        document.getElementById("img").src = 'assets/img/' + this.getImage();
     }
 };
 let Answer = function () {
@@ -86,6 +86,8 @@ let Answer = function () {
                 alert("Bạn đã thắng cuộc");
                 alert("Điểm của bạn là: 100")
 
+            }else {
+                countDown(20);
             }
         } else if (this.answer === "") {
             alert("Bạn chưa nhập câu trả lời!");
@@ -117,3 +119,4 @@ let Point = function () {
 let image = new ImageQuestion();
 let answer = new Answer();
 let point = new Point();
+countDown(20);
